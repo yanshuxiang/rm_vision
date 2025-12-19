@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 project(rm_vision)
+file(GLOB src_list "src/*.cpp")
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
-add_executable(app src/main.cpp)
+add_executable(app ${src_list})
 target_link_libraries(app ${OpenCV_LIBS})
