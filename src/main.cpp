@@ -19,7 +19,7 @@ const float MAX_ALIGNMENT_ERROR = 10.0f;
 const float MAX_LONGSIDE_DEGREE = 95.0f;
 const float MIN_LONGSIDE_DEGREE = 85.0f;
 const int BRIGHTNESS_THRESHOLD = 180;
-const int FPS = 30;
+const int FPS = 1;
 
 enum ArmorColor { RED, BLUE, UNKNOWN };
 
@@ -189,7 +189,7 @@ void drawResults(Mat& img, const vector<pair<LightBar, LightBar>>& current_armor
 }
 
 int main() {
-    string video_path = "../video/2.mp4"; // 请确保路径正确
+    string video_path = "../video/3.mp4"; // 请确保路径正确
     VideoCapture cap(video_path);
     if (!cap.isOpened()) {
         cout << "无法打开视频文件" << endl;

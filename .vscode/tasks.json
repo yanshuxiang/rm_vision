@@ -1,0 +1,37 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "1. Clean & Prepare",
+            "type": "shell",
+            "command": "rm",
+            "args": ["-rf", "build", "&&", "mkdir", "build"]
+        },
+        {
+            "label": "2. CMake Configure",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "-DCMAKE_BUILD_TYPE=Debug",
+                ".."
+            ],
+            "options": { "cwd": "${workspaceFolder}/build" },
+            "dependsOn": "1. Clean & Prepare"
+        },
+        {
+            "label": "3. Build",
+            "type": "shell",
+            "command": "make",
+            "options": { "cwd": "${workspaceFolder}/build" },
+            "dependsOn": "2. CMake Configure"
+        },
+        {
+            "label": "Build and Run",
+            "type": "shell",
+            "command": "${workspaceFolder}/build/app",
+            "options": { "cwd": "${workspaceFolder}/build" },
+            "dependsOn": "3. Build",
+            "group": { "kind": "build", "isDefault": true }
+        }
+    ]
+}
