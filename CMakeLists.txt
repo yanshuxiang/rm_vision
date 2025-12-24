@@ -14,13 +14,16 @@ set(SDK_PATH "/opt/HuarayTech/MVviewer")
 include_directories(
     "${SDK_PATH}/include"
     ${OpenCV_INCLUDE_DIRS}
+    "${CMAKE_CURRENT_SOURCE_DIRS}/include"
 )
 
 
 # 5. 生成可执行程序
 add_executable(app 
-    test/test_camera.cpp
+    test/test_oop.cpp
     src/camera.cpp
+    src/finder.cpp
+    src/visualizer.cpp
     )
 
 # 6. 链接库文件 (根据你的 lib 目录截图，库名为 MVSDK)
